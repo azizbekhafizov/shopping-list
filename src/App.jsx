@@ -21,7 +21,7 @@ const App = () => {
         setUserData(res.data);
       } catch (error) {
         console.error(error);
-        navigate("/login");  // token noto'g'ri bo'lsa login sahifasiga qaytish
+        navigate("/login"); 
       }
     };
     fetchData();

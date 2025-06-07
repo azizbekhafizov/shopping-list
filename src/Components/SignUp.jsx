@@ -23,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_URL}/register`, {
+      const res = await fetch(`${API_URL}/users`, { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -31,7 +31,7 @@ const SignUp = () => {
 
       const data = await res.json();
 
-      if (res.ok && data.success) {
+      if (res.ok) {
         setMessage('✅ Ro‘yxatdan o‘tish muvaffaqiyatli! Endi tizimga kiring.');
         setTimeout(() => {
           navigate('/login');
@@ -48,14 +48,12 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-green-700 via-green-600 to-green-500">
       <div className="flex w-[900px] rounded-3xl shadow-xl overflow-hidden bg-white">
-        {/* Chap tomoni */}
         <div className="w-1/2 bg-green-800 text-white p-12 flex flex-col justify-center items-center">
           <FontAwesomeIcon icon={faUserPlus} className="text-white text-9xl mb-6" />
           <p className="text-lg font-light tracking-wider">Create your account at</p>
           <h1 className="text-6xl font-extrabold mt-2">Shopping List</h1>
         </div>
 
-        {/* O'ng tomoni */}
         <div className="w-1/2 p-12">
           <h2 className="text-4xl font-extrabold text-center mb-10 text-green-700">Sign Up</h2>
           <form onSubmit={handleSubmit} className="space-y-7">

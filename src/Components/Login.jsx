@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
-import { login } from "../api";  // Sizning api faylingizdagi login funksiyasi
+import { login } from "../api";  
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -17,11 +17,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await login(formData);  // api.js dan login chaqiruvi
+      const response = await login(formData); 
       const token = response.data.token;
       if (token) {
-        localStorage.setItem("token", token);  // tokenni localStorage ga saqlash
-        navigate("/dashboard"); // token olgach, dashboardga yo'naltirish
+        localStorage.setItem("token", token); 
+        navigate("/dashboard");
       } else {
         setMessage("❌ Token olinmadi");
       }
@@ -33,14 +33,12 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-600">
       <div className="flex w-[900px] rounded-2xl shadow-lg overflow-hidden">
-        {/* Chap tomoni */}
         <div className="w-1/2 bg-gray-900 text-white p-10 flex flex-col justify-center items-center">
           <FontAwesomeIcon icon={faBlog} className="text-white text-8xl mb-6" />
           <p className="text-sm text-gray-300">Welcome back to</p>
           <h1 className="text-5xl font-semibold mt-2">Shopping List</h1>
         </div>
 
-        {/* O'ng tomoni */}
         <div className="w-1/2 bg-white p-10">
           <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">Sign In</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
