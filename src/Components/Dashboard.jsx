@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBlog } from "@fortawesome/free-solid-svg-icons";
-import { FaSync, FaBell, FaCog, FaChevronDown } from "react-icons/fa";
+import { FaSync, FaBell, FaCog, FaChevronDown, FaCopy, FaTrash } from "react-icons/fa";
 
 const drawerWidth = 240;
 
@@ -9,7 +9,6 @@ function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div className="flex justify-between items-center px-6 h-16">
-        {/* Left */}
         <div className="flex items-center gap-4">
           <FontAwesomeIcon icon={faBlog} className="text-blue-600 text-2xl" />
           <button className="bg-blue-600 text-white font-medium px-4 py-1.5 rounded-full hover:bg-blue-700 transition">
@@ -17,14 +16,12 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Center */}
         <input
           type="search"
           placeholder="Search group and join..."
           className="w-[756px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
-        {/* Right */}
         <div className="flex items-center gap-4 ">
           <button>
             <FaSync size={16} />
@@ -93,16 +90,33 @@ export default function CombinedDashboard() {
       <Navbar />
       <Sidebar />
 
-      <main
-        className="ml-60 pt-20 p-6 bg-gray-50 min-h-screen"
-        style={{ marginLeft: drawerWidth }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Skeleton height={200} />
-          <Skeleton height={200} />
-          <Skeleton height={200} />
+       <div className=" h-[268px] w-[1250px] ml-[250px] mt-28 p-6 bg-white rounded-2xl shadow flex items-center justify-between">
+      <div className="flex items-center gap-6">
+        <div className="w-36 h-36 bg-red-600 text-white flex items-center justify-center rounded-full text-6xl font-medium border-4 border-white shadow-md">
+          A
         </div>
-      </main>
+        <div>
+          <div className="flex items-center gap-3">
+            <h2 className="text-3xl font-semibold text-gray-900">Azizbek</h2>
+            <span className="bg-green-700 text-white text-sm font-bold px-3 py-1 rounded">
+              Active
+            </span>
+          </div>
+          <p className="text-gray-500 mt-1">azizbek_hafizov_</p>
+        </div>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md">
+          <FaCopy />
+          Copy Username
+        </button>
+        <button className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-md">
+          <FaTrash />
+          Delete Account
+        </button>
+      </div>
+    </div>
     </>
   );
 }
