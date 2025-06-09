@@ -1,136 +1,108 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Toolbar from "@mui/material/Toolbar";
-import AppBar from "@mui/material/AppBar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Grid from "@mui/material/Grid";
-
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBlog } from "@fortawesome/free-solid-svg-icons";
 import { FaSync, FaBell, FaCog, FaChevronDown } from "react-icons/fa";
 
 const drawerWidth = 240;
 
-const Skeleton = styled("div")(({ theme, height }) => ({
-  backgroundColor: "#eee",
-  borderRadius: "4px",
-  height,
-  width: "100%",
-}));
-
 function Navbar() {
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <FontAwesomeIcon icon={faBlog} style={{ fontSize: 24, color: "white" }} />
-          <button style={{
-            backgroundColor: "white",
-            color: "#1976d2",
-            padding: "6px 16px",
-            borderRadius: "9999px",
-            fontWeight: "500",
-          }}>
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+      <div className="flex justify-between items-center px-6 h-16">
+        {/* Left */}
+        <div className="flex items-center gap-4">
+          <FontAwesomeIcon icon={faBlog} className="text-blue-600 text-2xl" />
+          <button className="bg-blue-600 text-white font-medium px-4 py-1.5 rounded-full hover:bg-blue-700 transition">
             + New
           </button>
         </div>
 
+        {/* Center */}
         <input
           type="search"
           placeholder="Search group and join..."
-          style={{
-            width: 400,
-            padding: "6px 12px",
-            borderRadius: 4,
-            border: "1px solid #ccc",
-            outline: "none"
-          }}
+          className="w-[756px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <IconButton color="inherit"><FaSync /></IconButton>
+        {/* Right */}
+        <div className="flex items-center gap-4 ">
+          <button>
+            <FaSync size={16} />
+          </button>
 
-          <div style={{ position: "relative" }}>
-            <IconButton color="inherit"><FaBell /></IconButton>
-            <span style={{
-              position: "absolute", top: 0, right: 0, backgroundColor: "red",
-              color: "white", fontSize: 10, padding: "2px 6px", borderRadius: "9999px"
-            }}>
+          <div className="relative">
+            <button className="hover:text-blue-800 transition">
+              <FaBell size={16} />
+            </button>
+            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs px-1.5 rounded-full">
               9+
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", cursor: "pointer", gap: 4 }}>
-            <FaCog />
-            <FaChevronDown />
+          <div className="flex items-center gap-1 cursor-pointer transition">
+            <FaCog size={18} />
+            <FaChevronDown size={14} />
           </div>
         </div>
-      </Toolbar>
-    </AppBar>
+      </div>
+    </header>
   );
 }
 
 const SidebarItems = [
-  { text: "profile", icon: <DashboardIcon /> },
-  { text: "Groups", icon: <ShoppingCartIcon /> },
-  { text: "Create Group", icon: <BarChartIcon /> },
+  { text: "Profile", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4" /><path d="M5.5 21a7 7 0 0113 0" /></svg> },
+  { text: "Groups", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-3-3.87" /><path d="M9 7a4 4 0 010-8" /><path d="M7 7h10" /></svg> },
+  { text: "Create Group", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" /></svg> },
 ];
+
+function Sidebar() {
+  return (
+    <aside
+      className="fixed top-16 left-0 h-[calc(100vh-4rem)] w-60 bg-white border-r border-gray-200 shadow-sm overflow-auto"
+      style={{ width: drawerWidth }}
+    >
+      <nav className="mt-4">
+        <ul>
+          {SidebarItems.map((item, idx) => (
+            <li
+              key={idx}
+              className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition"
+            >
+              <div className="text-blue-600">{item.icon}</div>
+              <span className="text-gray-700 font-medium">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  );
+}
+
+function Skeleton({ height }) {
+  return (
+    <div
+      className="bg-gray-200 rounded mb-4"
+      style={{ height: height || 100, width: "100%" }}
+    />
+  );
+}
 
 export default function CombinedDashboard() {
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+    <>
       <Navbar />
+      <Sidebar />
 
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
-        }}
+      <main
+        className="ml-60 pt-20 p-6 bg-gray-50 min-h-screen"
+        style={{ marginLeft: drawerWidth }}
       >
-        <Toolbar />
-        <Box sx={{ overflow: "auto" }}>
-          <List>
-            {SidebarItems.map((item, index) => (
-              <ListItem button key={index}>
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Skeleton height={200} />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Skeleton height={200} />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Skeleton height={200} />
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Skeleton height={200} />
+          <Skeleton height={200} />
+          <Skeleton height={200} />
+        </div>
+      </main>
+    </>
   );
 }
