@@ -31,16 +31,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-600">
-      <div className="flex w-[900px] rounded-2xl shadow-lg overflow-hidden">
-        <div className="w-1/2 bg-gray-900 text-white p-10 flex flex-col justify-center items-center">
-          <FontAwesomeIcon icon={faBlog} className="text-white text-8xl mb-6" />
-          <p className="text-sm text-gray-300">Welcome back to</p>
-          <h1 className="text-5xl font-semibold mt-2">Shopping List</h1>
+    <div className="min-h-screen flex items-center justify-center bg-[#6c757d]">
+      <div className="flex w-[1312px] rounded-2xl shadow-lg h-[416px] overflow-hidden">
+        <div className="w-1/2 bg-[#212529] text-white flex flex-col justify-center items-center">
+          <FontAwesomeIcon icon={faBlog} className=" text-blue-600 text-9xl" />
+          <p className="text-[18px] text-gray-300 mt-12">Welcome back to</p>
+          <h1 className="text-[80px] font-light mt-7">Shopping List</h1>
         </div>
 
         <div className="w-1/2 bg-white p-10">
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">Sign In</h2>
+          <h2 className="text-3xl font-bold text-center text-blue-700">Sign In</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block mb-1 font-medium">Username</label>
@@ -70,13 +70,13 @@ const Login = () => {
               type="submit"
               className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-full font-semibold transition duration-200"
             >
-              Login
+              Sign In
             </button>
           </form>
           {message && <p className="text-center text-red-600 mt-4">{message}</p>}
-          <p className="mt-6 text-sm text-center">
+          <p className="mt-6 text-sm">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-600 hover:underline font-medium">
+            <Link to="/signup" className="text-blue-600 underline font-medium">
               Create One
             </Link>
           </p>

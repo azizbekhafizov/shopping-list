@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBlog } from '@fortawesome/free-solid-svg-icons';
 
 const API_URL = 'https://nt-shopping-list.onrender.com/api';
 
@@ -46,56 +46,56 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-green-700 via-green-600 to-green-500">
-      <div className="flex w-[900px] rounded-3xl shadow-xl overflow-hidden bg-white">
-        <div className="w-1/2 bg-green-800 text-white p-12 flex flex-col justify-center items-center">
-          <FontAwesomeIcon icon={faUserPlus} className="text-white text-9xl mb-6" />
-          <p className="text-lg font-light tracking-wider">Create your account at</p>
-          <h1 className="text-6xl font-extrabold mt-2">Shopping List</h1>
+    <div className="min-h-screen flex items-center justify-center bg-[#6c757d] ">
+      <div className="flex w-[1312px] h-[496px] rounded-3xl shadow-xl overflow-hidden bg-white">
+        <div className="w-1/2 bg-[#212529] text-white flex flex-col justify-center items-center">
+          <FontAwesomeIcon icon={faBlog} className=" text-blue-600 text-9xl" />
+          <p className="text-[18px] text-gray-300 mt-12">Welcome back to</p>
+          <h1 className="text-[80px] font-light mt-7">Shopping List</h1>
         </div>
 
         <div className="w-1/2 p-12">
-          <h2 className="text-4xl font-extrabold text-center mb-10 text-green-700">Sign Up</h2>
+          <h2 className="text-3xl font-bold text-center text-blue-700">Register</h2>
           <form onSubmit={handleSubmit} className="space-y-7">
             <div>
-              <label className="block mb-2 font-semibold text-gray-700">Full Name</label>
+              <label className="block mb-1 font-medium">Name</label>
               <input
                 type="text"
-                placeholder="John Doe"
-                name="name"
-                className="w-full border border-gray-300 px-5 py-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-green-400 transition"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label className="block mb-2 font-semibold text-gray-700">Username</label>
-              <input
-                type="text"
-                placeholder="eshmatjon123"
                 name="username"
-                className="w-full border border-gray-300 px-5 py-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-green-400 transition"
+                placeholder="Enter your username"
+                className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.username}
                 onChange={handleChange}
                 required
               />
             </div>
             <div>
-              <label className="block mb-2 font-semibold text-gray-700">Password</label>
+              <label className="block mb-1 font-medium">Username</label>
+              <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label className="block mb-1 font-medium">Password</label>
               <input
                 type="password"
-                placeholder="Your password"
-                name="password"
-                className="w-full border border-gray-300 px-5 py-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-green-400 transition"
-                value={formData.password}
+                name="username"
+                placeholder="Enter your username"
+                className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.username}
                 onChange={handleChange}
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-bold text-lg transition duration-300"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-full font-semibold transition duration-200"
             >
               Sign Up
             </button>
@@ -109,9 +109,9 @@ const SignUp = () => {
               {message}
             </p>
           )}
-          <p className="mt-8 text-center text-gray-600 text-sm">
+          <p className="mt-4 text-gray-600 text-sm">
             Already have an account?{" "}
-            <Link to="/login" className="text-green-700 hover:underline font-semibold">
+            <Link to="/login" className="text-blue-600 underline font-medium">
               Login
             </Link>
           </p>
