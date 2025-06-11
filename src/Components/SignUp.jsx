@@ -23,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_URL}/users`, { 
+      const res = await fetch(`${API_URL}/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -102,9 +102,8 @@ const SignUp = () => {
           </form>
           {message && (
             <p
-              className={`text-center mt-6 font-semibold ${
-                message.startsWith('✅') ? 'text-green-600' : 'text-red-600'
-              }`}
+              className={`text-center mt-6 font-semibold ${message.startsWith('✅') ? 'text-green-600' : 'text-red-600'
+                }`}
             >
               {message}
             </p>

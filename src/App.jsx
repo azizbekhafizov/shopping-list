@@ -21,7 +21,7 @@ const App = () => {
         setUserData(res.data);
       } catch (error) {
         console.error(error);
-        navigate("/login"); 
+        navigate("/login");
       }
     };
     fetchData();

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
-import { login } from "../api";  
+import { login } from "../api";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -17,10 +17,10 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await login(formData); 
+      const response = await login(formData);
       const token = response.data.token;
       if (token) {
-        localStorage.setItem("token", token); 
+        localStorage.setItem("token", token);
         navigate("/dashboard");
       } else {
         setMessage("❌ Token olinmadi");
