@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import Login from './Components/Login.jsx';
-import SignUp from './Components/signUp.jsx';
+import SignUp from './Components/SignUp.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './Components/Dashboard.jsx';
 
